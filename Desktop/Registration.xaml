@@ -1,0 +1,87 @@
+﻿<Window x:Class="Desktop.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Desktop"
+        mc:Ignorable="d"
+        Title="Registration" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+
+    <Viewbox>
+        <Grid Height="444" Width="818">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.7*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Image HorizontalAlignment="Left" Margin="42,42,0,254" Width="147" Source="/logo.png" Grid.Row="1"/>
+            <Label Content="Добро пожаловать!" HorizontalAlignment="Left" Margin="514,16,0,0" VerticalAlignment="Top" FontSize="22" Height="39" Width="210" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <Label Content="Почта" HorizontalAlignment="Left" Margin="514,129,0,0" VerticalAlignment="Top" FontSize="16" Height="31" Width="55" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <Label Content="Пароль" HorizontalAlignment="Left" Margin="514,191,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,2.772" FontSize="16" Height="30" Width="65" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="emailbox" HorizontalAlignment="Left" Margin="1,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30" 
+            Text="exam@yandex.ru" Grid.Row="1" LostFocus="EmailTextBox_Lost1Focus" GotFocus="EmailTextBox_GotFocus" Foreground="Gray" FontSize="14" Grid.Column="1">
+                <TextBox.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF929292" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.95"/>
+                    </LinearGradientBrush>
+                </TextBox.BorderBrush>
+            </TextBox>
+            <TextBox x:Name="Password1" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="1,226,0,0" VerticalAlignment="Top" Width="236" Height="26" 
+            Text="Введите пароль" Grid.Row="1" LostFocus="Password1TextBox_Lost1Focus" GotFocus="Password1TextBox_GotFocus" Foreground="Gray" FontSize="14" Grid.Column="1">
+                <TextBox.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF929292" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.95"/>
+                    </LinearGradientBrush>
+                </TextBox.BorderBrush>
+            </TextBox>
+            <Button Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="514,326,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.344,0.174" Width="237" Height="40" Foreground="White" Background="#FFF96060" BorderBrush="#FFF96060" Grid.Row="1" Grid.ColumnSpan="2" Click="Button_Click_1">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="#FFF96060" BorderBrush="#FFF96060" BorderThickness="1"
+                        CornerRadius="12,12,5,5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Content="Назад" HorizontalAlignment="Left" Margin="514,373,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.344,0.174" Width="237" Height="40" Foreground="White" Background="#FFF96060" BorderBrush="#FFF96060" Click="Button_Click" Grid.Row="1" Grid.ColumnSpan="2">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="#FFF96060" BorderBrush="#FFF96060" BorderThickness="1"
+                        CornerRadius="5,5,12,12">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Label Content="Повторите пароль" HorizontalAlignment="Left" Margin="514,252,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,2.772" FontSize="16" Height="31" Width="185" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="Password2" HorizontalAlignment="Left" TextWrapping="Wrap" Margin="1,288,0,0" VerticalAlignment="Top" Width="235" Height="23" 
+            Text="Повторите пароль" Grid.Row="1" LostFocus="Password2TextBox_Lost1Focus" GotFocus="Password2TextBox_GotFocus" Foreground="Gray" FontSize="14" Grid.Column="1">
+                <TextBox.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF929292" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.95"/>
+                    </LinearGradientBrush>
+                </TextBox.BorderBrush>
+            </TextBox>
+            <Label Content="Имя пользователя" HorizontalAlignment="Left" Margin="514,67,0,0" VerticalAlignment="Top" FontSize="16" Height="31" Width="153" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="LoginBox" HorizontalAlignment="Left" Margin="1,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235" Height="30" 
+            Text="Введите имя пользователя" Grid.Row="1" LostFocus="LoginTextBox_Lost1Focus" GotFocus="LoginTextBox_GotFocus" Foreground="Gray" FontSize="14" Grid.Column="1">
+                <TextBox.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF929292" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.95"/>
+                    </LinearGradientBrush>
+                </TextBox.BorderBrush>
+            </TextBox>
+            <Image HorizontalAlignment="Left" Height="145" Margin="42,42,0,0" VerticalAlignment="Top" Width="145" Source="Resources/images/logo.png" Grid.RowSpan="2"/>
+
+
+        </Grid>
+    </Viewbox>
+</Window>
