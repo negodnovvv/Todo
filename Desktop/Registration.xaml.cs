@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -113,15 +114,53 @@ namespace Desktop
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-                string login = LoginBox.Text;
-                string email = emailbox.Text;
-                string password1 = Password1.Text;
-                string password2 = Password2.Text;
+            try
+            {
+                if (LoginBox.Text.Length < 3)
+                {
+                    throw new ArgumentException("Имя пользователя должно содержать не менее трех знаков");
+                }
 
-                if (login == "Введите имя пользователя") login = "";
-                if (email == "exam@yandex.ru") email = "";
-                if (password1 == "Введите пароль") password1 = "";
-                if (password2 == "Повторите пароль") password2 = "";
+                var MailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+                if (!Regex.IsMatch(emailbox.Text, MailPattern))
+                {
+                    throw new ArgumentException("Введена некорректная почта");
+                }
+
+                if (Password1.Text.Length < 6)
+                {
+                    throw new ArgumentException("Пароль должен содержать не менее шести символов");
+                }
+
+                if (Password2.Text.Length < 6)
+                {
+                    throw new ArgumentException("Пароль должен содержать не менее шести символов");
+                }
+
+                if (Password1.Text != Password2.Text)
+                {
+                    throw new ArgumentException("Пароль и его подтверждение должны совпадать");
+                }
+
+                MainEmpty mainEmpty = new MainEmpty();
+                mainEmpty.Show();
+                this.Hide();
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
+            string login = LoginBox.Text;
+            string email = emailbox.Text;
+            string password1 = Password1.Text;
+            string password2 = Password2.Text;
+
+            if (login == "Введите имя пользователя") login = "";
+            if (email == "exam@yandex.ru") email = "";
+            if (password1 == "Введите пароль") password1 = "";
+            if (password2 == "Повторите пароль") password2 = "";
         }
     }
 }
